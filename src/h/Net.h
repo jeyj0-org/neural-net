@@ -2,6 +2,10 @@
 #define NET_H_
 
 #include "HiddenLayer.h";
+#include "InputNeuron.h";
+#include "OutputNeuron.h";
+#include "BiasNeuron.h";
+#include "ProcessingNeuron.h";
 
 namespace nn {
 
