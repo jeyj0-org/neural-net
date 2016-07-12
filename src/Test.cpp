@@ -17,7 +17,7 @@ void testInterface() {
 	 *
 	 * A newly created net already contains an input-layer and an
 	 * output-layer. Every other layer is a new processing layer in-between
-	 * the two.
+	 * the two..
 	 */
 	Net net = new Net;
 
