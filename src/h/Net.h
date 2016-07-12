@@ -1,6 +1,8 @@
 #ifndef NET_H_
 #define NET_H_
 
+#include "./HiddenLayer.h";
+
 namespace nn {
 
 class Net {

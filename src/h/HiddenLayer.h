@@ -1,8 +1,14 @@
 #ifndef HIDDENLAYER_H_
 #define HIDDENLAYER_H_
 
+namespace nn {
 
+class HiddenLayer {
+public:
+	HiddenLayer();
+	virtual ~HiddenLayer();
+};
 
+} /* namespace nn */
 
-
-#endif /* H_HIDDENLAYER_H_ */
+#endif /* HIDDENLAYER_H_ */
