@@ -2,6 +2,4 @@
 
 namespace nn {
 
-
-
 } /* namespace nn */

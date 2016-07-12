@@ -26,19 +26,19 @@ void testInterface() {
 	 * possible to create an input-neuron on another layer, but there should
 	 * not be the need for that either.
 	 */
-	InputNeuron inputNeuron = net->newInputNeuron();
+	InputNeuron inputNeuron = net.newInputNeuron();
 
 	/*
 	 * This creates a new output-neuron on the output-layer. It is not yet
 	 * possible to create an output-neuron on another layer, but there
 	 * should not be the need for that either.
 	 */
-	OutputNeuron outputNeuron = net->newOutputNeuron();
+	OutputNeuron outputNeuron = net.newOutputNeuron();
 
 	/*
 	 * This creates a new processing layer.
 	 */
-	HiddenLayer hiddenLayer = net->newHiddenLayer();
+	HiddenLayer hiddenLayer = net.newHiddenLayer();
 
 	/*
 	 * This creates a new bias-neuron on the last added layer. This includes
@@ -46,34 +46,34 @@ void testInterface() {
 	 * right after net-creation, the bias neuron will be added to the
 	 * input-layer.
 	 */
-	BiasNeuron biasNeuron1 = net->newBiasNeuron();
+	BiasNeuron biasNeuron1 = net.newBiasNeuron();
 
 	/*
 	 * This creates a new bias-neuron on the given layer. This layer can be
 	 * any hidden-layer, or the input layer, but not the output-layer.
 	 */
-	BiasNeuron biasNeuron2 = net->newBiasNeuron(hiddenLayer);
+	BiasNeuron biasNeuron2 = net.newBiasNeuron(hiddenLayer);
 
 	/*
 	 * This creates a new processing-neuron on the last added processing
 	 * layer.
 	 */
-	ProcessingNeuron processingNeuron1 = net->newProcessingNeuron();
+	ProcessingNeuron processingNeuron1 = net.newProcessingNeuron();
 
 	/*
 	 * This creates a new processing-neuron on the layer that was given as
 	 * argument. It is not possible to use the input- or output-layer for
 	 * this.
 	 */
-	ProcessingNeuron processingNeuron2 = net->newProcessingNeuron(hiddenLayer);
+	ProcessingNeuron processingNeuron2 = net.newProcessingNeuron(hiddenLayer);
 
 	/*
 	 * With this function neurons can be connected.
 	 *
 	 * net.connect(Neuron FROM, Neuron TO, double WEIGHT);
 	 */
-	bool connection1 = net->connect(inputNeuron, processingNeuron1, 1D);
-	bool connection2 = net->connect(inputNeuron, processingNeuron2, 0.5D);
+	bool connection1 = net.connect(inputNeuron, processingNeuron1, 1D);
+	bool connection2 = net.connect(inputNeuron, processingNeuron2, 0.5D);
 
 	/*
 	 * With this functions neurons can be automatically connected. This
@@ -84,7 +84,7 @@ void testInterface() {
 	 *
 	 * Notice that this will also reset all previous connections.
 	 */
-	bool connections = net->autoConnect();
+	bool connections = net.autoConnect();
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Using the net
@@ -102,7 +102,7 @@ void testInterface() {
 	 * values as there are input-neurons in the net.
 	 */
 	double values[] = new double[] {1D};
-	bool success1 = net->setInput(values);
+	bool success1 = net.setInput(values);
 
 	/*
 	 * After all the input is set for the next run, the net has to process
@@ -118,7 +118,7 @@ void testInterface() {
 	 *
 	 * net.processInput();
 	 */
-	bool success2 = net->processInput(values);
+	bool success2 = net.processInput(values);
 
 	/*
 	 * Finally the values of the output-neurons can be read. This way the
@@ -127,7 +127,7 @@ void testInterface() {
 	 * Only that the length will be the same amount as output-neurons, not
 	 * input-neurons, obviously.
 	 */
-	double output[] = net->getOutput();
+	double output[] = net.getOutput();
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Miscellaneous functions to use on the net and its components
@@ -135,12 +135,12 @@ void testInterface() {
 	/*
 	 * With this method the input-layer can be retrieved from the net.
 	 */
-	InputLayer inputLayer = net->getInputLayer();
+	InputLayer inputLayer = net.getInputLayer();
 
 	/*
 	 * With this method the output-layer can be retrieved from the net.
 	 */
-	HiddenLayer outputLayer = net->getOutputLayer();
+	HiddenLayer outputLayer = net.getOutputLayer();
 }
 
 } /* namespace nn */

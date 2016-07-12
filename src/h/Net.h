@@ -1,7 +1,7 @@
 #ifndef NET_H_
 #define NET_H_
 
-#include "./HiddenLayer.h";
+#include "HiddenLayer.h";
 
 namespace nn {
 
