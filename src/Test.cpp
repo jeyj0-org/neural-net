@@ -101,7 +101,7 @@ void testInterface() {
 	 * and so on. So the double[] given has to have the same amount of
 	 * values as there are input-neurons in the net.
 	 */
-	double values[] = new double[] {1D};
+	vector<double> values = new vector<double> {1D};
 	bool success1 = net.setInput(values);
 
 	/*
@@ -109,7 +109,7 @@ void testInterface() {
 	 * that input. This has to be initialized by a function so that
 	 * simulations can adopt this better.
 	 */
-	net->processInput();
+	net.processInput();
 
 	/*
 	 * Combination of the two methods above:
@@ -127,7 +127,7 @@ void testInterface() {
 	 * Only that the length will be the same amount as output-neurons, not
 	 * input-neurons, obviously.
 	 */
-	double output[] = net.getOutput();
+	vector<double> output = net.getOutput();
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Miscellaneous functions to use on the net and its components

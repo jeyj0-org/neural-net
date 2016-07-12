@@ -1,7 +1,10 @@
 #ifndef NET_H_
 #define NET_H_
 
-#include "HiddenLayer.h";
+#include <vector>
+#include "HiddenLayer.h"
+
+using namespace std;
 
 namespace nn {
 
@@ -20,6 +23,20 @@ public:
 	BiasNeuron newBiasNeuron(HiddenLayer);
 	ProcessingNeuron newProcessingNeuron();
 	ProcessingNeuron newProcessingNeuron(HiddenLayer);
+
+	/* Connection handling */
+	bool connect(Neuron, Neuron, double);
+	bool autoConnect();
+
+	/* Using net */
+	bool setInput(vector<double>);
+	void processInput();
+	bool processInput(vector<double>);
+	vector<double> getOutput(); //
+
+	/* Miscellaneous */
+	InputLayer getInputLayer();
+	OutputLayer getOutputLayer();
 };
 
 } /* namespace nn */
